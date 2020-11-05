@@ -63,6 +63,7 @@ func NewKieSource(ci *archaius.RemoteInfo) (source.ConfigSource, error) {
 		AutoDiscovery: ci.AutoDiscovery,
 		Labels:        ci.DefaultDimension,
 		WatchTimeOut:  ci.RefreshInterval,
+		ProjectID:     ci.TenantName,
 	}
 	k, err := NewKie(opts)
 	if err != nil {
@@ -70,7 +71,7 @@ func NewKieSource(ci *archaius.RemoteInfo) (source.ConfigSource, error) {
 		return nil, err
 	}
 	ks := new(Source)
-	ks.dimensions = []map[string]string{k.Options().Labels}
+	ks.dimensions = []map[string]string{opts.Labels}
 	ks.priority = kieSourcePriority
 	ks.k = k
 	ks.RefreshMode = ci.RefreshMode

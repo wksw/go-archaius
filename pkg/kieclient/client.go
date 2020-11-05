@@ -213,6 +213,7 @@ func (c *Client) List(ctx context.Context, opts ...GetOption) (*KVResponse, int,
 		}
 		url = url + labels
 	}
+	openlog.Debugf("kie pull config url is '%s'", url)
 	h := http.Header{}
 	resp, err := c.c.Do(ctx, http.MethodGet, url, h, nil)
 	if err != nil {

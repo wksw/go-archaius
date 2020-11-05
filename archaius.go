@@ -13,7 +13,7 @@ import (
 	"github.com/go-chassis/go-archaius/source"
 	"github.com/go-chassis/go-archaius/source/cli"
 	"github.com/go-chassis/go-archaius/source/env"
-	"github.com/go-chassis/go-archaius/source/file"
+	filesource "github.com/go-chassis/go-archaius/source/file"
 	"github.com/go-chassis/go-archaius/source/mem"
 	"github.com/go-chassis/openlog"
 )
